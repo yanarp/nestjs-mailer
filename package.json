@@ -1,8 +1,8 @@
 {
   "name": "mailer",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Nestjs mailer module implementation",
+  "author": "Pranay Yadav",
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
