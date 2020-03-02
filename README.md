@@ -29,7 +29,7 @@ import { HandlebarsAdapter, MailerModule } from '@nestjs-modules/mailer';
   imports: [
     MailerModule.forRoot({
       transport: {
-        host: 'smtp.exmaple.com',
+        host: 'smtp.example.com',
         port: 587,
         secure: false // upgrade later with STARTTLS
         auth: {
@@ -41,7 +41,7 @@ import { HandlebarsAdapter, MailerModule } from '@nestjs-modules/mailer';
         from:'"nest-modules" <modules@nestjs.com>',
       },
       template: {
-        dir: __dirname + '/templates',
+        dir: process.cwd() + '/templates/',
         adapter: new HandlebarsAdapter(), // or new PugAdapter()
         options: {
           strict: true,
@@ -65,7 +65,7 @@ import { HandlebarsAdapter, MailerModule } from '@nestjs-modules/mailer';
     MailerModule.forRootAsync({
       useFactory: () => ({
         transport: {
-        host: 'smtp.exmaple.com',
+        host: 'smtp.example.com',
         port: 587,
         secure: false // upgrade later with STARTTLS
         auth: {
@@ -76,7 +76,7 @@ import { HandlebarsAdapter, MailerModule } from '@nestjs-modules/mailer';
           from:'"nest-modules" <modules@nestjs.com>',
         },
         template: {
-          dir: __dirname + '/templates',
+          dir: process.cwd() + '/templates/',
           adapter: new HandlebarsAdapter(), // or new PugAdapter()
           options: {
             strict: true,
@@ -175,10 +175,13 @@ export class ExampleService {
 }
 ```
 
+Make a template named folder at the root level of the project and keep all the email-templates in the that folder with `.hbs` extension.
+This implementation uses handlebars as a view-engine and outlook as the smtp.
+
 
 ### Configuration
 
 Dotenv module is been used for sender's email and password keep. This kit is implemented with outlook smtp, while we can makes changes in the `app.module.ts` configurations for other services. As the nestjs-mailer is built on top of nodemailer, the required configurations can be found here <a href="https://nodemailer.com/smtp/">Nodemailer / smtp</a>. 
 
-*Special thanks to https://github.com/leemunroe/responsive-html-email-template for providing email-tempalte*
+*Special thanks to https://github.com/leemunroe/responsive-html-email-template for providing email-templates*
 
