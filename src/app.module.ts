@@ -8,11 +8,8 @@ import { HandlebarsAdapter, MailerModule } from '@nestjs-modules/mailer';
   imports: [
     MailerModule.forRoot({
       transport: {
-        host: 'smtp.office365.com',
-        port: 587,
-        tls: {
-          ciphers: 'SSLv3'
-        },
+        host: process.env.EMAIL_HOST,
+        port: process.env.EMAIL_PORT,
         secure: false, // true for 465, false for other ports
         auth: {
           user: process.env.EMAIL_ID, // generated ethereal user
