@@ -138,7 +138,7 @@ export class ExampleService {
         to: 'test@nestjs.com',
         from: 'noreply@nestjs.com',
         subject: 'Testing Nest Mailermodule with template ✔',
-        template: 'welcome', // The `.pug` or `.hbs` extension is appended automatically.
+        template: 'index', // The `.pug` or `.hbs` extension is appended automatically.
         context: {  // Data to be sent to template engine.
           code: 'cf1a3f828287',
           username: 'john doe',
@@ -159,7 +159,7 @@ export class ExampleService {
         to: 'test@nestjs.com',
         from: 'noreply@nestjs.com',
         subject: 'Testing Nest Mailermodule with template ✔',
-        template: '/welcome', // The `.pug` or `.hbs` extension is appended automatically.
+        template: '/index', // The `.pug` or `.hbs` extension is appended automatically.
         context: {  // Data to be sent to template engine.
           code: 'cf1a3f828287',
           username: 'john doe',
@@ -181,7 +181,7 @@ This implementation uses handlebars as a view-engine and outlook as the smtp.
 
 ### Configuration
 
-Dotenv module is been used for sender's email and password keep. This kit is implemented with outlook smtp, while we can makes changes in the `app.module.ts` configurations for other services. As the nestjs-mailer is built on top of nodemailer, the required configurations can be found here <a href="https://nodemailer.com/smtp/">Nodemailer / smtp</a>. 
+Dotenv module has been used for sender's email and password keep. This kit is implemented with outlook smtp, while we can make changes in the `app.module.ts` configurations for other services. As the nestjs-mailer is built on top of nodemailer, the required configurations can be found here <a href="https://nodemailer.com/smtp/">Nodemailer / smtp</a>. 
 
 *Special thanks to https://github.com/leemunroe/responsive-html-email-template for providing email-templates*
 
