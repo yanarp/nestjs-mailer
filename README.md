@@ -79,7 +79,7 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
         },
         template: {
           dir: process.cwd() + '/templates/',
-          adapter: new HandlebarsAdapter(), // or new PugAdapter()
+          adapter: new HandlebarsAdapter(), // or new PugAdapter() or new EjsAdapter()
           options: {
             strict: true,
           },
@@ -90,6 +90,29 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
 })
 export class AppModule {}
 ```
+
+* We have used Handlebars in above example, for EJS and Pug use below mentioned example of adapter import
+
+Pug
+
+```javascript
+//app.module.ts
+import { Module } from '@nestjs/common';
+import { MailerModule } from '@nestjs-modules/mailer';  
+import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter';
+
+```
+
+EJS
+
+```javascript
+//app.module.ts
+import { Module } from '@nestjs/common';
+import { MailerModule } from '@nestjs-modules/mailer';  
+import { EjsAdapter } from '@nestjs-modules/mailer/dist/adapters/ejs.adapter';
+
+```
+
 
 After this, MailerService will be available to inject across entire project, for example in this way : 
 
