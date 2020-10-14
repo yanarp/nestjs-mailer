@@ -32,7 +32,7 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
       transport: {
         host: 'smtp.example.com',
         port: 587,
-        secure: false // upgrade later with STARTTLS
+        secure: false, // upgrade later with STARTTLS
         auth: {
           user: "username",
           pass: "password",
@@ -67,12 +67,13 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
     MailerModule.forRootAsync({
       useFactory: () => ({
         transport: {
-        host: 'smtp.example.com',
-        port: 587,
-        secure: false // upgrade later with STARTTLS
-        auth: {
-          user: "username",
-          pass: "password",
+          host: 'smtp.example.com',
+          port: 587,
+          secure: false, // upgrade later with STARTTLS
+          auth: {
+            user: "username",
+            pass: "password",
+          },
         },
         defaults: {
           from:'"nest-modules" <modules@nestjs.com>',
